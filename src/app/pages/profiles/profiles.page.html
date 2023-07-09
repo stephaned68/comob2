@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar
+    class="ion-color"
+    [style.backgroundColor]="datasetService.getTitleColor()"
+    [style.color]="datasetService.getTextColor()"
+  >
+    <ion-buttons slot="start">
+      <ion-back-button text="Accueil" (click)="homePage()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+    <ion-button
+      color="dark"
+      size="small"
+      fill="clear"
+      slot="end"
+      (click)="showConfig()"
+    >
+      <ion-icon slot="icon-only" name="filter-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-accordion-group [value]="openedSection" (ionChange)="sectionChange($event)">
+    <ion-accordion value="base">
+      <ion-item slot="header" color="medium">
+        <ion-label>Profils</ion-label>
+      </ion-item>
+      <div slot="content">
+        <ion-item button="true" *ngFor="let profile of (profiles | async)">
+          <ion-label detail="true" (click)="showProfilePaths(profile)">
+            {{ profile.nom }}
+            <p size="small">({{ profile.famille.libelle }})</p>
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-accordion>
+
+    <div *ngIf="hybrids | async;let hybridList">
+      <ion-accordion value="hybrids" *ngIf="hybridList.length > 0">
+        <ion-item slot="header" color="medium">
+          <ion-label>Hybrides</ion-label>
+        </ion-item>
+        <div slot="content">
+          <ion-item button="true" *ngFor="let hybrid of hybridList">
+            <ion-label detail="true" (click)="showProfilePaths(hybrid)">
+              {{ hybrid.nom }}
+              <p size="small">({{ hybrid.famille.libelle }})</p>
+            </ion-label>
+          </ion-item>
+        </div>
+      </ion-accordion>
+    </div>
+
+    <div *ngIf="pathTypes | async;let pathTypeList">
+      <ion-accordion value="others" *ngIf="pathTypeList.length > 0">
+        <ion-item slot="header" color="medium">
+          <ion-label>Autres voies</ion-label>
+        </ion-item>
+        <div slot="content">
+          <ion-item button="true" *ngFor="let pathType of pathTypeList">
+            <ion-label detail="true" (click)="showOtherPaths(pathType)"
+              >{{ pathType.type_voie_intitule }}
+            </ion-label>
+          </ion-item>
+        </div>
+      </ion-accordion>
+    </div>
+
+    <div *ngIf="datasetService.selected.showAbilities; let showAbilities">
+      <ion-accordion value="abilities" *ngIf="showAbilities.length > 0">
+        <ion-item slot="header" color="medium">
+          <ion-label>Autres capacités</ion-label>
+        </ion-item>
+        <div slot="content">
+          <ion-item button="true" *ngFor="let showAbility of showAbilities">
+            <ion-label detail="true" (click)="showOtherAbilities(showAbility)"
+              >{{ showAbility.label }}
+            </ion-label>
+          </ion-item>
+        </div>
+      </ion-accordion>
+    </div>
+
+    <ion-accordion value="gear">
+      <ion-item slot="header" color="medium">
+        <ion-label>Equipement</ion-label>
+      </ion-item>
+      <div slot="content">
+        <ion-item button="true" *ngFor="let category of (categories | async)">
+          <ion-label detail="true" (click)="showSubCategories(category)">
+            {{ category.libelle }}
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>
