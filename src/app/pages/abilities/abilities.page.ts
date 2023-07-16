@@ -51,6 +51,7 @@ export class AbilitiesPage implements OnInit {
    }
 
   ngOnInit() {
+    this.notes = "";
     if (this.pathService.selected != null) {
       this.title = this.pathService.selected.nom;
       this.notes = this.pathService.selected.notes;

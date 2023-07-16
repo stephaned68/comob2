@@ -56,6 +56,8 @@ export class RaceService {
   }
 
   public getRace(): Observable<any> {
+    if (!this.pathService?.selected?.voie) return null;
+    
     const url = this.raceURL + `/${this.datasetService.selected.dbid}/${this.pathService.selected.voie}`;
 
     return this.http.get(url).pipe(
@@ -64,6 +66,8 @@ export class RaceService {
   }
 
   public getTraitsList(): Observable<any> {
+    if (!this.pathService?.selected?.voie) return null;
+
     const url = this.global.serviceURL + '/traits' + `/${this.datasetService.selected.dbid}/?race=${this.pathService.selected.voie}`;
 
     return this.http.get(url).pipe(
@@ -72,6 +76,8 @@ export class RaceService {
   }
 
   public getAbilityList(): Observable<any> {
+    if (!this.pathService?.selected?.voie) return null;
+    
     const url = this.abilityService.getAbilityURL()
     + `/${this.datasetService.selected.dbid}/?race=${this.pathService.selected.voie}`;
 

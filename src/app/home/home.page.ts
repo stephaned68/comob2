@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatasetService, Dataset } from 'src/app/services/dataset.service';
+import { GlobalService } from '../services/global.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -12,10 +13,15 @@ export class HomePage implements OnInit {
 
   public datasets: Observable<any>;
 
+  public version: string;
+
   constructor(
+    public globalService: GlobalService,
     public datasetService: DatasetService,
     private router: Router
-  ) { }
+  ) {
+    this.version = globalService.version;
+   }
 
   ngOnInit() {
     this.getDatasetList();

@@ -113,6 +113,7 @@ export class ProfilesPage implements OnInit {
         navBack: '/profiles'
       }
     };
+    console.log(navExtras);
     this.saveSection();
     this.router.navigateByUrl('/abilities', navExtras);
   }
