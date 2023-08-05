@@ -2,7 +2,10 @@
 
 A mobile application to display Chroniques Oubliées TTRPG compendium data
 
-### Current Version : 2.1.0
+### Current Version : 2.1.1
+
+## 2023/08/05 : Version 2.1.1
+- Corrected minor display glitch in other paths page
 
 ## 2023/08/05 : Version 2.1.0
 - Corrected minor display glitches in profile page
