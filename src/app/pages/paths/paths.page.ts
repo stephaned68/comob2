@@ -16,7 +16,7 @@ export class PathsPage implements OnInit {
 
   public title: string;
 
-  public attacks: SafeHtml;
+  public attacks: string;
 
   public paths$: Observable<any>;
 
@@ -42,9 +42,9 @@ export class PathsPage implements OnInit {
   }
 
   ngOnInit() {
+    let attacks = "";
     if (this.profileService.selected !== null) {
       this.title = this.profileService.selected.nom;
-      let attacks = "";
       const combat = this.profileService.selected.combat;
       if (combat) {
         combat.split(",").forEach(attack => {
@@ -56,12 +56,12 @@ export class PathsPage implements OnInit {
           attacks += value + " ";
         });
       }
-      this.attacks = attacks;
       this.getEquipmentList();
       this.getTraitList();
     } else {
       this.title = this.pathType.type_voie_intitule;
     }
+    this.attacks = attacks;
     this.getPathList();
   }
 
