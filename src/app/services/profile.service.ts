@@ -14,6 +14,7 @@ export class Profile {
   nom: string;
   description: string;
   famille: string;
+  combat: string;
 }
 
 @Injectable({

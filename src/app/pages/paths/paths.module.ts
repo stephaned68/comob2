@@ -8,6 +8,8 @@ import { PathsPageRoutingModule } from './paths-routing.module';
 
 import { PathsPage } from './paths.page';
 
+import { FormatEquipmentPipe } from '../../pipes/format-equipment.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,9 @@ import { PathsPage } from './paths.page';
     IonicModule,
     PathsPageRoutingModule
   ],
-  declarations: [PathsPage]
+  declarations: [
+    PathsPage,
+    FormatEquipmentPipe
+  ]
 })
 export class PathsPageModule {}

@@ -13,6 +13,7 @@ export class EquipmentProperty {
 export class EquipmentBase {
   code: string;
   designation: string;
+  prix: number;
   nombre: number;
   special: string;
   props: Array<EquipmentProperty>;

@@ -5,6 +5,7 @@ import { DatasetService } from 'src/app/services/dataset.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { PathService, Path, PathType } from 'src/app/services/path.service';
 import { EquipmentBaseService } from 'src/app/services/equipmentbase.service';
+import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-paths',
@@ -14,6 +15,8 @@ import { EquipmentBaseService } from 'src/app/services/equipmentbase.service';
 export class PathsPage implements OnInit {
 
   public title: string;
+
+  public attacks: SafeHtml;
 
   public paths$: Observable<any>;
 
@@ -41,6 +44,19 @@ export class PathsPage implements OnInit {
   ngOnInit() {
     if (this.profileService.selected !== null) {
       this.title = this.profileService.selected.nom;
+      let attacks = "";
+      const combat = this.profileService.selected.combat;
+      if (combat) {
+        combat.split(",").forEach(attack => {
+          const [ name, value ] = attack.split(":");
+          attacks += "<b>" + name;
+          attacks += "</b> : ";
+          if (name === "DV") attacks += "d";
+          if (name === "INIT") attacks += "+";
+          attacks += value + " ";
+        });
+      }
+      this.attacks = attacks;
       this.getEquipmentList();
       this.getTraitList();
     } else {

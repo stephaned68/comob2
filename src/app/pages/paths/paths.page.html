@@ -17,9 +17,9 @@
 <ion-content>
   <ion-list>
     <ion-item
-      *ngIf="profileService.selected !== null && profileService.selected.description !== null"
+      *ngIf="profileService.selected !== null && (profileService.selected.description || '' !== '')"
     >
-      <ion-card *ngIf="profileService.selected.description !== null">
+      <ion-card *ngIf="profileService.selected.description || '' !== ''">
         <ion-card-content class="ion-text-justify">
           {{ profileService.selected.description }}
         </ion-card-content>
@@ -56,21 +56,28 @@
         </ion-label>
       </ion-item>
     </div>
+    <ion-item
+      *ngIf="attacks !== ''"
+    >
+      <ion-card-content [innerHTML]="attacks">
+      </ion-card-content>
+    </ion-item>
     <div
       *ngIf="profileService.selected !== null && (equipments$ | async) as equipments"
     >
       <ion-list-header color="medium">Equipement de départ</ion-list-header>
       <ion-item *ngFor="let equipment of equipments">
-        <ion-label>
-          <h5>
-            {{ equipment.special || equipment.designation }} {{ equipment.nombre
-            > 1 ? "(" + equipment.nombre + ")" : ""}}
+        <ion-label text-wrap>
+          <h5 [innerHTML]="[ equipment.designation, equipment.special, equipment.nombre ] | formatEquipment">
           </h5>
-          <div *ngIf="equipment.props !== ''">
+          <div *ngIf="equipment.props.length !== 0">
+            <ion-badge color="medium" *ngIf="equipment.prix && equipment.prix !== 0">
+              Prix : {{ equipment.prix }}
+            </ion-badge>&nbsp;
             <span *ngFor="let prop of equipment.props" class="ion-text-wrap">
-              <ion-badge color="medium"
-                >{{ prop.nom }} : {{ prop.valeur }}</ion-badge
-              >&nbsp;
+              <ion-badge color="medium">
+                {{ prop.nom }} : {{ prop.valeur }}
+              </ion-badge>&nbsp;
             </span>
           </div>
         </ion-label>

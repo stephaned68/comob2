@@ -19,6 +19,6 @@ export class GlobalService {
     
     this.forceAll = environment.forceAll || false;
     
-    this.version = "2.0.1";
+    this.version = "2.1.0";
    }
 }
