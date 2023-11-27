@@ -51,7 +51,7 @@
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^5.0.1",
     "cordova-plugin-splashscreen": "6.0.2",
-    "cordova-plugin-statusbar": "^3.0.0",
+    "cordova-plugin-statusbar": "^4.0.0",
     "eslint": "^8.54.0",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-jsdoc": "46.8.2",
