@@ -37,7 +37,7 @@
     "@angular/cli": "~17.0.5",
     "@angular/compiler": "~16.2.9",
     "@angular/compiler-cli": "~13.2.2",
-    "@angular/language-service": "~17.0.4",
+    "@angular/language-service": "~17.0.5",
     "@ionic/angular-toolkit": "^10.0.0",
     "@ionic/lab": "3.2.15",
     "@types/jasmine": "~4.3.5",
