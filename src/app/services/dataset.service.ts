@@ -39,13 +39,22 @@ export class DatasetService {
     private http: HttpClient,
     private global: GlobalService
   ) {
-    this.datasetURL = this.global.serviceURL + '/datasets' + (this.global.forceAll ? "?all=1" : "");
+    const urlParams = [];
+    if (this.global.showCOF2) urlParams.push("cof2=1");
+    if (this.global.forceAll) urlParams.push("all=1");
+    let queryString = "";
+    if (urlParams.length > 0) queryString = urlParams.join("&");
+    this.datasetURL = this.global.serviceURL + '/datasets' + (queryString !== "" ? "?" + queryString : "");
   }
 
   public getDatasetList(): Observable<any> {
     return this.http.get(this.datasetURL).pipe(
       map(results => results[this.resultSet])
     );
+  }
+
+  public is(value: string) {
+    return this.selected.dbid === value;
   }
 
   public getTitleColor(): string {

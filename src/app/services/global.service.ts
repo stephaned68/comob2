@@ -8,6 +8,8 @@ export class GlobalService {
 
   public serviceURL: string;
 
+  public showCOF2: boolean;
+
   public forceAll: boolean;
   
   public version: string;
@@ -17,8 +19,9 @@ export class GlobalService {
     if (protocol === 'https:') this.serviceURL = environment.secureURL;
     else this.serviceURL = environment.serviceURL;
     
+    this.showCOF2 = environment.showCOF2 || false;
     this.forceAll = environment.forceAll || false;
     
-    this.version = "2.1.1";
+    this.version = "2.2.0";
    }
 }

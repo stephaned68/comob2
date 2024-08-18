@@ -16,6 +16,7 @@ export class Race {
   mod_int: number;
   mod_sag: number;
   mod_cha: number;
+  mod_vol: number;
   age_base: number;
   esperance_vie: number;
   taille_min: number;
