@@ -20,7 +20,7 @@
       *ngIf="profileService.selected !== null && (profileService.selected.description || '' !== '')"
     >
       <ion-card *ngIf="profileService.selected.description || '' !== ''">
-        <ion-card-content class="ion-text-justify">
+        <ion-card-content>
           {{ profileService.selected.description }}
         </ion-card-content>
       </ion-card>
@@ -32,7 +32,6 @@
         <ion-card-content>
           <p
             size="x-small"
-            class="ion-text-justify"
             *ngFor="let trait of traits"
           >
             <strong>{{ trait.intitule }}</strong> : {{ trait.description }}
@@ -51,7 +50,7 @@
             size="small"
             *ngIf="path.type_voie_intitule !== null && path.type_voie_intitule !== undefined"
           >
-            ({{ '*' + path.type_voie_intitule +'*' }})
+            {{ path.type_voie_intitule }}
           </p>
         </ion-label>
       </ion-item>
