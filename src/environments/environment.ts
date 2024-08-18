@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   serviceURL: 'http://localhost:8800',
   secureURL: 'http://localhost:8800',
-  forceAll: true,
+  showCOF2: true,
+  forceAll: false,
 };
 
 /*
