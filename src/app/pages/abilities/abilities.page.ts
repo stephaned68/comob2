@@ -84,6 +84,24 @@ export class AbilitiesPage implements OnInit {
     }
   }
 
+  hasMod(value?: number) : boolean {
+    value = +value || 0;
+    return value !== 0;
+  }
+
+  getName(value: string) : string {
+    let name = "";
+    switch (value) {
+      case "DEX":
+        name = this.datasetService.is('cof2') ? "AGI" : value;
+        break;
+      case "SAG":
+        name = !this.datasetService.is('cof') ? "PER" : value;
+        break;
+    }
+    return name;
+  }
+
   backPage() {
     this.router.navigateByUrl(this.navBack);
   }
