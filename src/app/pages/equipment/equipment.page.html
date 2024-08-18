@@ -33,7 +33,9 @@
               >&nbsp;
             </span>
           </div>
-          <p size="x-small" class="ion-text-justify">{{ equipment.notes }}</p>
+          <div *ngIf="equipment.notes !== ''" size="x-small"
+          [innerHTML]="equipment.notes | formatNotes"
+          ></div>
         </ion-card-content>
       </ion-card>
     </ion-item>

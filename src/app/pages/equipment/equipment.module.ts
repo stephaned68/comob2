@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { EquipmentPageRoutingModule } from './equipment-routing.module';
 
+import { FormatNotesPipe } from 'src/app/pipes/format-notes.pipe';
 import { EquipmentPage } from './equipment.page';
 
 @NgModule({
@@ -15,6 +16,12 @@ import { EquipmentPage } from './equipment.page';
     IonicModule,
     EquipmentPageRoutingModule
   ],
-  declarations: [EquipmentPage]
+  providers: [
+    FormatNotesPipe
+  ],
+  declarations: [
+    EquipmentPage,
+    FormatNotesPipe
+  ]
 })
 export class EquipmentPageModule {}
