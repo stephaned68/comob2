@@ -2,12 +2,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Pipe({
-  name: 'formatNotes'
+  name: 'formatEquipNotes'
 })
-export class FormatNotesPipe implements PipeTransform {
+export class FormatEquipNotesPipe implements PipeTransform {
 
   constructor(private sanitizer: DomSanitizer) {}
-
+  
   private getIonIcon(line: string) {
     let ionIcon = "";
     
@@ -23,7 +23,7 @@ export class FormatNotesPipe implements PipeTransform {
 
   transform(value?: string, args?: any): SafeHtml {
     let notes = '';
-
+    
     if (value) {
       const lines = value.split('\n');
       for (let line of lines) {
@@ -37,7 +37,7 @@ export class FormatNotesPipe implements PipeTransform {
         notes += `<p>${title}${ionIcon}${line}</p>`;
       }
     }
-    
+
     return this.sanitizer.bypassSecurityTrustHtml(notes);
   }
 
