@@ -33,6 +33,17 @@ export class EquipmentPage implements OnInit {
     this.equipments = this.equipmentService.getEquipmentList();
   }
 
+  public getPrice(price: number): string {
+    if (this.currency === "pa") {
+      if (price < 1) {
+        return price * 10 + " pc";
+      } else if (price > 1000) {
+        return price / 10 + " po";
+      }
+    }
+    return price + " " + this.currency;
+  }
+
   categoriesPage() {
     this.equipmentService.subCategory = null;
     this.router.navigateByUrl('/categories');
