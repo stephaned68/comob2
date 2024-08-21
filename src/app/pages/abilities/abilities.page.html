@@ -17,7 +17,7 @@
 <ion-content>
   <ion-list>
     <ion-card *ngFor="let race of (race$ | async)">
-      <ion-card-header>
+      <ion-card-header *ngIf="datasetService.is('cof') || datasetService.is('cof2')">
         <ion-card-subtitle>
           <ion-badge color="medium" *ngIf="hasMod(race?.mod_for)">
             FOR : {{ race?.mod_for > 0 ? '+' : '' }}{{ race?.mod_for }}
@@ -47,14 +47,14 @@
             CHA : {{ race?.mod_cha > 0 ? '+' : '' }}{{ race?.mod_cha }} 
           </ion-badge>
           <br />
-          <ion-badge color="medium">
+          <ion-badge color="medium" *ngIf="race?.age_base || race?.esperance_vie">
             Âge : {{ race?.age_base}}+ (max : {{ race?.esperance_vie }})&nbsp; </ion-badge
           ><br />
-          <ion-badge color="medium">
+          <ion-badge color="medium" *ngIf="race?.taille_min || race?.taille_max">
             Taille : {{ race?.taille_min | number:'1.2-2' }}-{{ race?.taille_max
             | number:'1.2-2' }} m&nbsp; </ion-badge
           ><br />
-          <ion-badge color="medium">
+          <ion-badge color="medium" *ngIf="race?.poids_min || race?.poids_max">
             Poids : {{ race?.poids_min }}-{{ race?.poids_max }} kg&nbsp; </ion-badge
           ><br />
         </ion-card-subtitle>
