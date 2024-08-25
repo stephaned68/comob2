@@ -49,6 +49,7 @@ export class PathsPage implements OnInit {
       if (combat) {
         combat.split(",").forEach(attack => {
           const [ name, value ] = attack.split(":");
+          if (parseInt(value) === 0) return;
           attacks += "<b>" + name;
           attacks += "</b> : ";
           if (name === "DV") attacks += "d";
