@@ -40,7 +40,7 @@
     "@angular/language-service": "~19.0.0",
     "@ionic/angular-toolkit": "^12.1.1",
     "@ionic/lab": "3.2.15",
-    "@types/jasmine": "~5.1.4",
+    "@types/jasmine": "~5.1.5",
     "@types/jasminewd2": "~2.0.13",
     "@types/node": "^22.9.0",
     "@typescript-eslint/eslint-plugin": "8.14.0",
