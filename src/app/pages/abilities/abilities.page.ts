@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { DatasetService, AbilityType } from 'src/app/services/dataset.service';
 import { PathService } from 'src/app/services/path.service';
-import { AbilityService } from 'src/app/services/ability.service';
+import { AbilityService, Ability } from 'src/app/services/ability.service';
 import { RaceService } from 'src/app/services/race.service';
 
 @Component({
@@ -63,9 +63,24 @@ export class AbilitiesPage implements OnInit {
     this.getRacialTraits();
     this.getRacialAbilities();
   }
-
+  
   getAbilityList() {
     this.abilities$ = this.abilityService.getAbilityList(this.abilityType);
+  }
+
+  getActionTag(ability: Ability ): string {
+    if (ability.limitee === 1) 
+      return "(L)";
+    switch (ability.action) {
+      case 1:
+        return "(G)";
+      case 2:
+        return "(M)";
+      case 3:
+        return "(A)";
+      default:
+        return "";
+    }
   }
 
   getRace() {

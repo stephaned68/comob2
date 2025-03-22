@@ -12,6 +12,7 @@ export class Ability {
   nom: string;
   limitee: number;
   sort: number;
+  action: number;
   type: string;
   description: string;
 }

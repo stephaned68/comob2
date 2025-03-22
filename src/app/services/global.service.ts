@@ -22,6 +22,6 @@ export class GlobalService {
     this.showCOF2 = environment.showCOF2 || false;
     this.forceAll = environment.forceAll || false;
     
-    this.version = "2.2.0";
+    this.version = "2.3.0";
    }
 }

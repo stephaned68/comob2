@@ -77,8 +77,7 @@
           *ngFor="let racial of racials"
         >
           <strong>
-            {{ racial.limitation === 1 ? 'Limitation raciale' : 'Capacité
-            raciale' }} &#8226; {{ racial.capacite }}
+            {{ racial.limitation === 1 ? 'Limitation raciale' : 'Capacité raciale' }} &#8226; {{ racial.capacite }}
           </strong>
           : {{ racial.description }}
         </p>
@@ -92,10 +91,10 @@
     <ion-card *ngFor="let ability of (abilities$ | async)">
       <ion-card-header>
         <ion-card-title>
-          <span *ngIf="ability.rang !== null && ability.rang > 0"
-            >{{ ability.rang }}.</span
-          >
-          {{ ability.nom }} {{ ability.limitee === 1 ? "(L)" : "" }}
+          <span *ngIf="ability.rang !== null && ability.rang > 0">
+            {{ ability.rang }}.
+          </span>
+          {{ ability.nom }} {{ getActionTag(ability) }}
           <ion-icon *ngIf="ability.sort === 1 && datasetService.selected.dbid !== 'cog'" name="color-wand-outline"></ion-icon>
           <ion-icon *ngIf="ability.sort === 1 && datasetService.selected.dbid === 'cog'" name="rocket-outline"></ion-icon>
         </ion-card-title>
