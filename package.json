@@ -42,7 +42,7 @@
     "@ionic/lab": "3.2.15",
     "@types/jasmine": "~5.1.7",
     "@types/jasminewd2": "~2.0.13",
-    "@types/node": "^22.15.3",
+    "@types/node": "^22.15.21",
     "@typescript-eslint/eslint-plugin": "8.32.1",
     "@typescript-eslint/parser": "8.29.1",
     "cordova-android": "^14.0.0",
