@@ -24,7 +24,7 @@
     "@ionic/angular": "^8.5.7",
     "@ionic/cordova-builders": "^12.2.0",
     "@ionic/storage-angular": "^4.0.0",
-    "rxjs": "~7.8.1",
+    "rxjs": "~7.8.2",
     "tslib": "^2.8.1",
     "zone.js": "~0.15.1"
   },
