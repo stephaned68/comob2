@@ -52,7 +52,7 @@
     "cordova-plugin-ionic-webview": "^5.0.1",
     "cordova-plugin-splashscreen": "6.0.2",
     "cordova-plugin-statusbar": "^4.0.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsdoc": "61.5.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
