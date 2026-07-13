@@ -16,7 +16,7 @@
     "@angular/common": "~22.0.1",
     "@angular/core": "~22.0.2",
     "@angular/forms": "~22.0.1",
-    "@angular/platform-browser": "~22.0.5",
+    "@angular/platform-browser": "~22.0.6",
     "@angular/platform-browser-dynamic": "~22.0.2",
     "@angular/router": "~22.0.5",
     "@ionic-native/splash-screen": "^5.36.0",
